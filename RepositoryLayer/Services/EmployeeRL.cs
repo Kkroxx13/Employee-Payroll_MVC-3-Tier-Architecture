@@ -95,7 +95,11 @@ namespace RepositoryLayer.Services
                 {
                     DepartmentList = DepartmentList + "Sales,";
                 }
-                 if (employee.isOthers == true)
+                if (employee.isEngineer == true)
+                {
+                    DepartmentList = DepartmentList + "Engineer,";
+                }
+                if (employee.isOthers == true)
                 {
                     DepartmentList = DepartmentList + "Others";
                 }
@@ -171,5 +175,51 @@ namespace RepositoryLayer.Services
                 sqlConnection.Close();
             }
         }
+        public string RegisterUser(UserDetails user)
+        {
+            
+
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                SqlCommand cmd = new SqlCommand("spRegisterUser", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@FirstName", user.FirstName);
+                cmd.Parameters.AddWithValue("@LastName", user.LastName);
+                cmd.Parameters.AddWithValue("@UserID", user.Email);
+                cmd.Parameters.AddWithValue("@UserPassword", user.Password);
+
+                con.Open();
+                string result = cmd.ExecuteScalar().ToString();
+                con.Close();
+
+                return result;
+            }
+
+
+
+        }
+
+      
+        public string ValidateLogin(UserDetails user)
+        {
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                SqlCommand cmd = new SqlCommand("spValidateUserLogin", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@LoginID", user.Email);
+                cmd.Parameters.AddWithValue("@LoginPassword", user.Password);
+
+                con.Open();
+                string result = cmd.ExecuteScalar().ToString();
+                con.Close();
+
+                return result;
+            }
+
+        }
+        
+
     }
 }

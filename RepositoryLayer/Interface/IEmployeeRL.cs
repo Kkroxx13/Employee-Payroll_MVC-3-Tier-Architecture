@@ -12,5 +12,7 @@ namespace RepositoryLayer.Interface
         bool InsertEmployee(Parent employee);
 
         bool DeleteEmployee(Parent employee);
+        string RegisterUser(UserDetails user);
+        string ValidateLogin(UserDetails user);
     }
 }
