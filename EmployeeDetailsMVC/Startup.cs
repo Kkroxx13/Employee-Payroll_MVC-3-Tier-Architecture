@@ -41,7 +41,7 @@ namespace EmployeeDetailsMVC
             });
 
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(
-                x=>x.LoginPath="/Admin/Login/");
+                x=>x.LoginPath="/Login/UserLogin/");
            // services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddSingleton<IEmployeeBL, EmployeeBL>();
             services.AddSingleton<IEmployeeRL, EmployeeRL>();
@@ -78,7 +78,7 @@ namespace EmployeeDetailsMVC
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Employee}/{action=EmployeeList}/{id?}");
+                    pattern: "{controller=Login}/{action=UserLogin}/{id?}");
             });
             //app.UseMvc(routes =>
             //{

@@ -186,8 +186,8 @@ namespace RepositoryLayer.Services
 
                 cmd.Parameters.AddWithValue("@FirstName", user.FirstName);
                 cmd.Parameters.AddWithValue("@LastName", user.LastName);
-                cmd.Parameters.AddWithValue("@UserID", user.Email);
-                cmd.Parameters.AddWithValue("@UserPassword", user.Password);
+                cmd.Parameters.AddWithValue("@Email", user.Email);
+                cmd.Parameters.AddWithValue("@Password", user.Password);
 
                 con.Open();
                 string result = cmd.ExecuteScalar().ToString();
@@ -208,8 +208,8 @@ namespace RepositoryLayer.Services
                 SqlCommand cmd = new SqlCommand("spValidateUserLogin", con);
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.Parameters.AddWithValue("@LoginID", user.Email);
-                cmd.Parameters.AddWithValue("@LoginPassword", user.Password);
+                cmd.Parameters.AddWithValue("@Email", user.Email);
+                cmd.Parameters.AddWithValue("@Password", user.Password);
 
                 con.Open();
                 string result = cmd.ExecuteScalar().ToString();

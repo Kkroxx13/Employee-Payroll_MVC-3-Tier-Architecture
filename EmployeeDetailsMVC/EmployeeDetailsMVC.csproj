@@ -17,10 +17,4 @@
     <ProjectReference Include="..\BusinessLayer\BusinessLayer.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Views\Login\" />
-    <Folder Include="Views\NewFolder\" />
-    <Folder Include="Views\User\" />
-  </ItemGroup>
-
 </Project>
