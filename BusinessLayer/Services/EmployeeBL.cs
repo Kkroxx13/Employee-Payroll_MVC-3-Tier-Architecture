@@ -40,6 +40,19 @@ namespace BusinessLayer.Services
             }
         }
 
+        public List<Employee> EmployeeListNew()
+        {
+            try
+            {
+                return this._employeeRL.EmployeeListNew();
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+
         public bool InsertEmployee(Parent employee )
         {
             try

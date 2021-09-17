@@ -8,6 +8,8 @@ namespace BusinessLayer.Interface
     public interface IEmployeeBL
     {
         List<Employee> EmployeeList();
+
+        List<Employee> EmployeeListNew();
         bool InsertEmployee(Parent employee);
 
         bool DeleteEmployee(Parent employee);

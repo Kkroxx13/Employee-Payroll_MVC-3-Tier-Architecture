@@ -27,8 +27,16 @@ namespace EmployeeDetailsMVC.Controllers
             var empList = this.employeeBL.EmployeeList();
             return View(empList);
         }
+
+        public IActionResult EmployeeListNew()
+        {
+            var empList = this.employeeBL.EmployeeListNew();
+            return View(empList);
+        }
+
         public IActionResult Create(Parent obj)
         {
+            
             //loadDDL();
             return View(obj);
         }

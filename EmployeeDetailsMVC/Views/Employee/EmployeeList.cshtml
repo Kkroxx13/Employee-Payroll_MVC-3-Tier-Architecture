@@ -3,7 +3,9 @@
 @{
     ViewData["Title"] = "EmployeeList";
 }
-
+<head>
+    <link href="~/css/EmployeeList.css" rel="stylesheet" />
+</head>
 <h1>EmployeeList</h1>
 
 <p class="float-right">
@@ -71,10 +73,21 @@
                 @Html.DisplayFor(modelItem => item.Description)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Department)
-            </td>
+                <div class="dept">
+                    <style>
+                        .dept {
+                            background: #E9FEA5 0% 0% no-repeat padding-box;
+                            border-radius: 15px;
+                            opacity: 1;
+                            padding-left:50px;
+                        }
+                    </style>
+                    @Html.DisplayFor(modelItem => item.Department)
+                </div>
+
+</td>
             <td>
-                @Html.ActionLink("Edit", "Create", new { Id = item.Id, item.Name, item.ProfileImage, item.Gender, item.Salary, item.StartDate, item.Description, item.Department, }, new { @class = "btn btn-success" }) |
+                @Html.ActionLink("Edit", "Create", new { Id = item.Id, item.Name, item.ProfileImage, item.Gender, item.Salary, item.StartDate, item.Description, item.Department }, new { @class = "btn btn-success" }) |
 
                 @Html.ActionLink("Delete", "DeleteEmployee", new { item.Id }, new { @class = "btn btn-danger", onclick = "return confirm('Do you really want to delete this record?')" })
             </td>
